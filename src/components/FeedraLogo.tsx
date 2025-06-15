@@ -29,78 +29,62 @@ const FeedraLogo: React.FC<FeedraLogoProps> = ({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Background circle with gradient */}
           <defs>
-            <linearGradient id="feedraGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor={variant === 'monochrome' ? '#1f2937' : '#3b82f6'} />
-              <stop offset="50%" stopColor={variant === 'monochrome' ? '#374151' : '#6366f1'} />
-              <stop offset="100%" stopColor={variant === 'monochrome' ? '#4b5563' : '#8b5cf6'} />
+            {/* RGB Rainbow gradient for the F */}
+            <linearGradient id="rgbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ff0000" />
+              <stop offset="16.66%" stopColor="#ff8800" />
+              <stop offset="33.33%" stopColor="#ffff00" />
+              <stop offset="50%" stopColor="#00ff00" />
+              <stop offset="66.66%" stopColor="#0088ff" />
+              <stop offset="83.33%" stopColor="#4400ff" />
+              <stop offset="100%" stopColor="#ff00ff" />
             </linearGradient>
-            <linearGradient id="aiGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor={variant === 'monochrome' ? '#9ca3af' : '#60a5fa'} />
-              <stop offset="100%" stopColor={variant === 'monochrome' ? '#d1d5db' : '#a78bfa'} />
+            
+            {/* Star gradient */}
+            <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ffd700" />
+              <stop offset="100%" stopColor="#ffaa00" />
+            </linearGradient>
+
+            {/* Monochrome versions */}
+            <linearGradient id="monoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="100%" stopColor="#e5e7eb" />
             </linearGradient>
           </defs>
           
-          {/* Main circle */}
+          {/* Black circle background - macOS style */}
           <circle 
             cx="50" 
             cy="50" 
-            r="45" 
-            fill="url(#feedraGradient)" 
-            className="drop-shadow-lg"
+            r="48" 
+            fill="#000000"
+            stroke="#333333"
+            strokeWidth="1"
           />
           
-          {/* Browser window frame */}
-          <rect 
-            x="20" 
-            y="30" 
-            width="60" 
-            height="40" 
-            rx="4" 
-            fill="white" 
-            fillOpacity="0.95"
-          />
-          
-          {/* Browser top bar */}
-          <rect 
-            x="20" 
-            y="30" 
-            width="60" 
-            height="8" 
-            rx="4" 
-            fill="url(#aiGlow)" 
-            fillOpacity="0.3"
-          />
-          
-          {/* Browser dots */}
-          <circle cx="25" cy="34" r="1.5" fill="url(#feedraGradient)" fillOpacity="0.7" />
-          <circle cx="30" cy="34" r="1.5" fill="url(#feedraGradient)" fillOpacity="0.7" />
-          <circle cx="35" cy="34" r="1.5" fill="url(#feedraGradient)" fillOpacity="0.7" />
-          
-          {/* Content lines representing feeds */}
-          <rect x="25" y="42" width="35" height="2" rx="1" fill="url(#feedraGradient)" fillOpacity="0.6" />
-          <rect x="25" y="47" width="25" height="2" rx="1" fill="url(#feedraGradient)" fillOpacity="0.4" />
-          <rect x="25" y="52" width="30" height="2" rx="1" fill="url(#feedraGradient)" fillOpacity="0.5" />
-          
-          {/* AI spark/neural network elements */}
-          <circle cx="65" cy="45" r="3" fill="url(#aiGlow)" fillOpacity="0.8" />
-          <circle cx="72" cy="52" r="2" fill="url(#aiGlow)" fillOpacity="0.6" />
-          <circle cx="68" cy="58" r="2.5" fill="url(#aiGlow)" fillOpacity="0.7" />
-          
-          {/* Connecting lines for AI network */}
-          <line x1="65" y1="45" x2="72" y2="52" stroke="url(#aiGlow)" strokeWidth="1" strokeOpacity="0.5" />
-          <line x1="72" y1="52" x2="68" y2="58" stroke="url(#aiGlow)" strokeWidth="1" strokeOpacity="0.5" />
-          <line x1="65" y1="45" x2="68" y2="58" stroke="url(#aiGlow)" strokeWidth="0.8" strokeOpacity="0.3" />
-          
-          {/* Letter F integrated into design */}
+          {/* Letter F - Fat and Rounded */}
           <path 
-            d="M12 25 L12 75 M12 25 L25 25 M12 45 L22 45" 
-            stroke="white" 
-            strokeWidth="3" 
+            d="M18 12 L18 88 M18 12 L72 12 M18 42 L62 42" 
+            stroke={variant === 'monochrome' ? 'url(#monoGradient)' : 'url(#rgbGradient)'} 
+            strokeWidth="16" 
             strokeLinecap="round"
-            fillOpacity="0.9"
+            strokeLinejoin="round"
+            fill="none"
           />
+          
+          {/* AI Star in upper right corner */}
+          <g transform="translate(68, 18)">
+            <path 
+              d="M8 0 L9.5 6 L16 6 L11 10 L13 16 L8 12 L3 16 L5 10 L0 6 L6.5 6 Z" 
+              fill={variant === 'monochrome' ? 'url(#monoGradient)' : 'url(#starGradient)'}
+              stroke="none"
+            />
+            {/* Small sparkle effect */}
+            <circle cx="4" cy="4" r="1" fill="white" fillOpacity="0.8" />
+            <circle cx="12" cy="12" r="0.5" fill="white" fillOpacity="0.6" />
+          </g>
         </svg>
       </div>
       
