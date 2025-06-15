@@ -1,0 +1,34 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- RGB Rainbow gradient for the F -->
+    <linearGradient id="rgbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff0000" />
+      <stop offset="16.66%" stop-color="#ff8800" />
+      <stop offset="33.33%" stop-color="#ffff00" />
+      <stop offset="50%" stop-color="#00ff00" />
+      <stop offset="66.66%" stop-color="#0088ff" />
+      <stop offset="83.33%" stop-color="#4400ff" />
+      <stop offset="100%" stop-color="#ff00ff" />
+    </linearGradient>
+    
+    <!-- Star gradient -->
+    <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd700" />
+      <stop offset="100%" stop-color="#ffaa00" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Black circle background - macOS style -->
+  <circle cx="50" cy="50" r="48" fill="#000000" stroke="#333333" stroke-width="1" />
+  
+  <!-- Letter F - Bold and prominent -->
+  <path d="M25 20 L25 80 M25 20 L65 20 M25 45 L55 45" stroke="url(#rgbGradient)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  
+  <!-- AI Star in upper right corner -->
+  <g transform="translate(68, 18)">
+    <path d="M8 0 L9.5 6 L16 6 L11 10 L13 16 L8 12 L3 16 L5 10 L0 6 L6.5 6 Z" fill="url(#starGradient)" stroke="none" />
+    <!-- Small sparkle effect -->
+    <circle cx="4" cy="4" r="1" fill="white" fill-opacity="0.8" />
+    <circle cx="12" cy="12" r="0.5" fill="white" fill-opacity="0.6" />
+  </g>
+</svg>
